@@ -1,0 +1,27 @@
+#7.2 Write a program that prompts for a file name, then opens that file and reads through the file, 
+#looking for lines of the form:
+#X-DSPAM-Confidence:    0.8475
+#Count these lines and extract the floating point values from each of the lines
+#and compute the average of those values and produce an output as shown below. 
+#Do not use the sum() function or a variable named sum in your solution.
+#You can download the sample data at http://www.pythonlearn.com/code/mbox-short.txt 
+#when you are testing below enter mbox-short.txt as the file name.
+
+# Use the file name mbox-short.txt as the file name
+
+fname = raw_input('Enter file name: ') #requests input
+if len(fname) == 0:
+    fname = 'mbox-short.txt'
+fh = open(fname) #opens the specified name
+
+count=0 #sets the count at zero
+total=0 #sets the total at zero
+answer=0 #sets the answer at zero
+for line in fh: #creates a for loop in 'fh'
+    if not line.startswith('X-DSPAM-Confidence:') : 
+        continue
+    count = count + 1 #creates the denominator by counting each line
+    number = float(line[line.find('0.'):]) #captures the numerator amount
+    total = number + total #creates the numerator by addint the numerator amount each time
+answer = total / count 
+print "Average spam confidence:", answer
