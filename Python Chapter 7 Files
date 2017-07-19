@@ -1,0 +1,94 @@
+Python Chapter 7 - Files
+
+##This will count the lines in mbox.txt
+fhand=open('mbox.txt')
+count=0
+for line in fhand
+	count = count+1
+print 'Line Count': count
+
+python open.py
+
+\n ##means new line
+
+inp=fhand.read() ##returns the file as a string
+print len(inp)
+print inp[:20] ##slices the first twenty characters
+
+fhand=open('mbox.txt') ##you can put an if statement into a for loop
+for line in fhand
+	line=line.rstrip()
+	if line.startswith('From:'):
+		print line
+##will result in blank lines because the print adds a new line each time it prints
+
+
+fhand=open('mbox-short.txt') ##you can put an if statement into a for loop
+for line in fhand
+	line=line.rstrip()
+	#skip uninteresting lines
+	if not line.startswith('From:'):
+		continue
+	#process our 'interesting' line
+	print line
+##will result in only the lines you are interested in
+
+fhand=open('mbox-short.txt') 
+for line in fhand
+	line=line.rstrip()
+	#skip uninteresting lines
+	if not '@uct.ac.za' in line:
+		continue
+	#process our 'interesting' line
+	print line
+##will exclude everything unrelated to those things above
+
+fname=raw_input('Enter the file name:') 
+fhand = open(fname)
+count = 0
+for line in fhand:
+	if line.startswith('Subject:')
+	count = count + 1
+print 'There were', count, 'subject lines in', fname
+#will count the number of subject lines in a file name
+
+fname=raw_input('Enter the file name:') 
+try:
+	fhand = open(fname)
+except:
+	print 'File cannot be opened:',fname
+	exit()
+count=0
+for line in fhand:
+	if line.startswith('Subject:'):
+	count = count + 1
+print 'There were', count, 'subject lines in', fname
+#takes out some insurance on the particular line
+
+# Use words.txt as the file name
+fname = raw_input('Enter the file name:')
+fhand = open(fname)
+inputs = fhand.read()
+upperinputs =inputs.upper()
+upperinputsnoextralines = upperinputs.lstrip()
+print upperinputsnoextralines
+
+# Use the file name mbox-short.txt as the file name
+
+fname = raw_input('Enter file name: ') #requests input
+if len(fname) == 0:
+    fname = 'mbox-short.txt'
+fh = open(fname) #opens the specified name
+
+# answers to the second exercise
+count=0 #sets the count at zero
+total=0 #sets the total at zero
+answer=0 #sets the answer at zero
+for line in fh: #creates a for loop in 'fh'
+    if not line.startswith('X-DSPAM-Confidence:') : 
+        continue
+    count = count + 1 #creates the denominator by counting each line
+    number = float(line[line.find('0.'):]) #captures the numerator amount
+    total = number + total #creates the numerator by addint the numerator amount each time
+answer = total / count 
+print "Average spam confidence:", answer
