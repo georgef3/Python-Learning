@@ -1,0 +1,82 @@
+Python Chapter 6 - Strings
+
+fruit = banana
+x = len(fruit)
+print x 
+6
+
+WHILE LOOP
+fruit = 'banana'
+index = 0
+	while index < len(fruit):
+		letter = fruit [index]
+		print index, letter
+		index = index +1
+FOR LOOP
+fruit = 'banana'
+for letter in fruit:
+	print letter
+
+
+word = 'banana'
+count = 0
+for letter in word:
+	if letter =='a':
+	count = count + 1
+print count
+
+$='Monty Python'
+print $[0:4] ##colon means up to but not including
+Mont
+print $[6:7]
+P
+print$[6:20]
+Python
+
+Spaces need to be explicitly added
+
+fruit='banana'
+'n' in fruit
+TRUE
+
+greet ='Hello Bob'
+zap = greet.lower() ##lower changes the case to lower case
+print zap
+'hello bob'
+
+dir(any_formula) shows all of the things that are inside a funtion
+
+find() ##tells where it finds something you are looking for
+pos=fruit.find('na')
+print pos
+2
+
+aa=fruit.find('z') #
+print aa
+-1
+
+variable.upper makes everything uppercase
+
+variable.replace('Bob','Jane') ##makes a copy and then replaces Bob w/ Jane
+
+variable.lstrip ##strips from the left all spaces
+variable.rstrip ##strips from the right
+variable.strip ##gets rid of all white space on left and right
+variable.startswith('searchterm') ##returns true or false based on start letter
+
+##24:40 shows a nice breakdown of the entire lesson
+
+##ACED THIS ON THE HOMEWORK SECTION, MY CODE IS BELOW:
+
+text = "X-DSPAM-Confidence:    0.8475";
+my_length=len(text)
+#print my_length
+
+zerobegin=text.find('0')
+#print zerobegin
+
+stringtarget=text[zerobegin+1:my_length]
+#print stringtarget
+
+intstringtarget=float(stringtarget)
+print intstringtarget
