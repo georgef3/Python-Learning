@@ -1,0 +1,168 @@
+##Python Week 8 Lists
+
+friends = ['Joseph', 'Glenn', 'Sally']
+print friends[1]
+Joseph
+
+#strings are not changeable
+fruit='Banana'
+fruit[0]='b'
+#will yield an error
+
+len(stringvariable) #will yield length of the characters
+len(non-stringvariable) #will yield the number of items in the list
+
+#range function
+>>> print range(4)
+[0,1,2,3]
+>>> friends = ['Joseph', 'Glenn', 'Sally']
+>>> print len(friends)
+3
+>>> print range(len(friends))
+[0,1,2]
+
+#the two below are equivalent, producing the same output
+friends = ['Joseph', 'Glenn', 'Sally']
+for friend in friends
+	print 'Happy New Year:',friend
+
+for i in range(len(friends)):
+	friend=friends[i]
+	print 'Happy New Year:', friend
+
+#you can add lists together with a plus sign
+#you can slice lists, works like strings, remember "starting but not up to"
+
+#List Methods
+>>>stuff = list() give me an empty list
+>>>stuff.append('book')
+>>>stuff.append(99)
+>>>print stuff
+['book',99]
+
+#is something *in* a list?
+>>> some=[1,9,21,10,16]
+>>> 9 in some
+True
+>>> 15 in some
+False
+>>> 20 not in some
+True
+
+#A List is an ordered sequence
+>>>friends = ['Joseph', 'Glenn', 'Sally']
+>>>friends.sort()
+>>>print friends
+['Glenn','Joseph','Sally']
+>>> print friends[1]
+Joseph
+
+#Built in Functions and Lists
+>>> print sum(nums)/len(nums)
+
+#Ways to change the programs we wrote
+total=0
+count=0
+while True:
+	inp=raw_input('Enter a number:') #will yield a string
+	if inp =='done':break
+	value=float(inp)
+	total=total+value
+	count=count+1
+average = total/count
+
+#Ways to change the programs we wrote, will yield the same as above
+while True:
+numlist = list()
+	inp=raw_input('Enter a number:') #will yield a string
+	if inp =='done':break
+	value=float(inp)
+	numlist.append(value)
+average = sum(numlist)/len(numlist)
+# this stores a ton of data, but can be referenced as appended, the other can't
+
+Strings and lists
+>>> abc='With three words'
+>>> suff =abc.split()
+>>> print stuff
+['With','three','words']
+>>> print len(stuff)
+3
+>>> print stuff[0]
+'With'
+
+#you can split based on a different character, not just a space
+>>> line = 'first;second;third"
+>>> thing = line.split(';')
+>>> print thing
+['first','second','third']
+>>> print len(thing)
+3
+
+fhand=open('mbox-short.txt') 
+for line in fhand
+	line=line.rstrip() 
+		if not line.startswith('From'):continue
+	words = line.split()
+	print words[2]
+##will result the day of the week the mbox-short.txt message was sent
+##this is really cool
+
+#Double split pattern, splits a string into a list and then splits it again
+words=line.split()
+email=words[1]
+pieces =email.split('@')
+print pieces [1]
+#wow so cool!
+
+Exercise 1:
+#This was very hard
+fname = raw_input("Enter file name: ")
+if len(fname) == 0:
+    fname = 'romeo.txt'
+fh = open(fname)
+romeolst = list()
+for line in fh:
+    word = line.rstrip().split()
+    for element in word:
+        if element in romeolst:
+            continue
+        else:
+            romeolst.append(element)
+romeolst.sort()
+print romeolst
+
+#Exercise 1:
+See for reference: https://gist.github.com/tombrad/4697060
+fname = raw_input("Enter file name: ")
+if len(fname) < 1 : fname = "mbox-short.txt"
+fh = open(fname)
+count=0
+for line in fh:
+    line=line.rstrip()
+    if not line.startswith('From'): continue
+    words=line.split()
+    if len(words)< 7: 
+        print words[1]
+	count=count+1 
+print "There were", count, "lines in the file with From as the first word"
+
+#Textbook answer
+
+fhand = open('mbox-short.txt')
+for line in fhand:
+	line = line.rstrip()
+	words = line.split()
+	if words[0] != 'From': continue
+print words [2]
+
+
+
+
+
+
+
+
+
+
+
